@@ -123,4 +123,4 @@ productManager.updateProduct(3,
   }
  
 );
-export default ProductManager;
+export default productManager;

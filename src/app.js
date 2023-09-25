@@ -1,5 +1,5 @@
 import express from 'express';
-import productManager from '.productManager/'
+import productManager from './productManager.js'
 const app = express();
 
 app.get('/products', (req, res)=>{
@@ -15,3 +15,4 @@ app.get('/:pid', (req, res)=>{
 app.listen("8080", ()=>{
     console.log("servidor activo");
 });
+console.log(productManager.getProducts());
