@@ -1,4 +1,5 @@
-const fs = require("fs"); //IMPORTAMOS LA LIBRERIA
+import fs from 'fs';
+//const fs = require("fs"); //IMPORTAMOS LA LIBRERIA
 //let data = "Hola mundo";
 class ProductManager {
   constructor() {
@@ -78,6 +79,8 @@ class ProductManager {
     }
   };
 
+
+
   };
 
   
@@ -109,6 +112,7 @@ productManager.addProduct(
   7
 );
 
+
 console.log(productManager.getProducts());
 //console.log(productManager.getProductById(1));
 //console.log(productManager.deleteProduct(3));
@@ -123,4 +127,5 @@ productManager.updateProduct(3,
   }
  
 );
+
 export default productManager;

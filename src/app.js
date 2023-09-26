@@ -2,17 +2,29 @@ import express from 'express';
 import productManager from './productManager.js'
 const app = express();
 
+
 app.get('/products', (req, res)=>{
-    res.send({products});
+    const limit = req.query.limit;
+    let arrayProductos = productManager.getProducts();
+    if(limit){
+        let products= arrayProductos.slice(0, parseInt(limit));
+        return res.send(products)
+    }else{
+       return res.send({ arrayProductos })
+    }
+    
 });
-app.get('/:pid', (req, res)=>{
-    let idProducts = req.params.pid;//leyendo el paramentro de la url
-    let product = products.find(u => u.id === idProducts);//me buscar algo en un array
-    if(!product){ return res.send({error: "Usuario no encontrado"}) } 
-    res.send({product})
-});
+
+app.get('/products/:pid', (req, res)=>{
+    const pid = parseInt(req.params.pid);
+    let arrayProduct = productManager.getProductById(pid);
+    if(arrayProduct){
+       return res.send({arrayProduct});
+    }else{
+        return res.send({error: "Producto no encontrado"}) } 
+    });
 
 app.listen("8080", ()=>{
     console.log("servidor activo");
 });
-console.log(productManager.getProducts());
+
