@@ -1,30 +1,14 @@
 import express from 'express';
-import productManager from './productManager.js'
+import bodyParser from  'body-parser';
+import productsRouter from './routes/products.js'
+//import cartsRouter from './routes/carts.js'
+
 const app = express();
-
-
-app.get('/products', (req, res)=>{
-    const limit = req.query.limit;
-    let arrayProductos = productManager.getProducts();
-    if(limit){
-        let products= arrayProductos.slice(0, parseInt(limit));
-        return res.send(products)
-    }else{
-       return res.send({ arrayProductos })
-    }
-    
-});
-
-app.get('/products/:pid', (req, res)=>{
-    const pid = parseInt(req.params.pid);
-    let arrayProduct = productManager.getProductById(pid);
-    if(arrayProduct){
-       return res.send({arrayProduct});
-    }else{
-        return res.send({error: "Producto no encontrado"}) } 
-    });
-
+const puerto = 8080;
+app.use(express.json())
+app.use('/products',productsRouter)
+app.use('/products/:pid',productsRouter)
+app.use('/',productsRouter)
 app.listen("8080", ()=>{
     console.log("servidor activo");
 });
-
