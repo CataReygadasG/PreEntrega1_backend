@@ -5,7 +5,7 @@ class ProductManager {
   constructor() {
     this.products = []; //inicializo con array vacio
     this.productId = 1;
-    this.path = 'datos.txt';
+    this.path = 'productos.json';
   }
   addProduct(title, description, price, thumbnail, code, stock) {
     const productExistente = this.products.find((product) => product.code === code);
