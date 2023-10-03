@@ -1,5 +1,7 @@
 import express from 'express';
 import productManager from '../productManager.js'
+
+
 const productsRouter = express.Router();
 
 productsRouter.get('/products', (req, res)=>{
@@ -22,7 +24,7 @@ productsRouter.get('/products/:pid', (req, res)=>{
       return res.send({error: "Producto no encontrado"}) } 
   });
 
- productsRouter.post('/'), (req, res)=> {
+ productsRouter.post('/', (req, res)=> {
   let id = Date.now().toString();
   const {
     title,
@@ -53,9 +55,9 @@ productsRouter.get('/products/:pid', (req, res)=>{
   products.push(newProduct);
   fs.writeFile('productos.json', JSON.stringify(products, null, 2),'utf-8');
   res.status(200).json(newProduct);
- }
+ });
 
-productsRouter.delete('/pid'), (req,res)=>{
+productsRouter.delete('/pid', (req,res)=>{
   let id = req.params.id;
   let currentLenght = id.length;
   products = products.filter(producto=>producto.first_name!=name);
@@ -63,7 +65,7 @@ productsRouter.delete('/pid'), (req,res)=>{
     return res.status(404).send({status:"error", message: "Producto no encontrado"})
   }
   res.send({status:"sucess", message: "Producto borrado"})
-}
+});
 
 
 
