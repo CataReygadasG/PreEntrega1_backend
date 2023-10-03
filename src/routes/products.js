@@ -58,13 +58,7 @@ productsRouter.get('/products/:pid', (req, res)=>{
  });
 
 productsRouter.delete('/pid', (req,res)=>{
-  let id = req.params.id;
-  let currentLenght = id.length;
-  products = products.filter(producto=>producto.first_name!=name);
-  if(products.length===currentLenght){
-    return res.status(404).send({status:"error", message: "Producto no encontrado"})
-  }
-  res.send({status:"sucess", message: "Producto borrado"})
+  let arrayProductos = productManager.getProducts();
 });
 
 
