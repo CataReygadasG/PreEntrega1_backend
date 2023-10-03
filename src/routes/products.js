@@ -1,6 +1,6 @@
 import express from 'express';
 import productManager from '../productManager.js'
-
+import fs from 'fs';
 
 const productsRouter = express.Router();
 
@@ -39,7 +39,7 @@ productsRouter.get('/products/:pid', (req, res)=>{
   if(!title || !description || !code || !price || !stock || !category ){
     return res.status(400).json({message: 'Todos los campos son obligatorios'});
   }
-  const data = fs.readFile('productos.json', 'utf-8');
+  const data = fs.readFileSync('productos.json', 'utf-8');
   const products = JSON.parse(data);
   const newProduct = {
     id: Date.now().toString(),
@@ -53,7 +53,7 @@ productsRouter.get('/products/:pid', (req, res)=>{
     thumbnail  
   }
   products.push(newProduct);
-  fs.writeFile('productos.json', JSON.stringify(products, null, 2),'utf-8');
+  fs.writeFileSync('productos.json', JSON.stringify(products, null, 2),'utf-8');
   res.status(200).json(newProduct);
  });
 
