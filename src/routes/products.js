@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const productsRouter = express.Router();
 
-productsRouter.get('/products', (req, res)=>{
+productsRouter.get('/', (req, res)=>{
   const limit = req.query.limit;
   let arrayProductos = productManager.getProducts();
   if(limit){
@@ -56,10 +56,15 @@ productsRouter.get('/products/:pid', (req, res)=>{
   fs.writeFileSync('productos.json', JSON.stringify(products, null, 2),'utf-8');
   res.status(200).json(newProduct);
  });
-
-productsRouter.delete('/pid', (req,res)=>{
-  let arrayProductos = productManager.getProducts();
+ productsRouter.put('/:pid', (req,res)=>{
+  let arrayProductos = productManager.deleteProduct(id);
 });
+
+
+productsRouter.delete('/:pid', (req,res)=>{
+  let arrayProductos = productManager.deleteProduct(id);
+});
+
 
 
 
