@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-class Cart {
+class CartManager {
   constructor() {
     this.products = []; //inicializo con array vacio
     this.cartsId = 1;
@@ -78,8 +78,8 @@ class Cart {
     }
   };
 
-
-
   };
 
 
+  const cartManager = new CartManager();
+  export default cartManager;
