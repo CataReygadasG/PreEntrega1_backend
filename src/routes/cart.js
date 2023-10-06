@@ -1,7 +1,6 @@
 import express from 'express';
-import productManager from '../productManager.js'
 import fs from 'fs';
-import cart from '../Cart.js';
+import cart from '../cartManager.js';
 const cartsRouter = express.Router();
 
   cartsRouter.get('/:cid', (req, res)=>{
@@ -47,7 +46,7 @@ const cartsRouter = express.Router();
    });
 
    const products = [];
-   productsRouter.post('/:cid/product/:pid', (req, res)=>{
+   cartsRouter.post('/:cid/product/:pid', (req, res)=>{
        let producto = req.body;
        if(!producto.id){
            return res.status(400).send({status: "error", error: "datos incompletos"});

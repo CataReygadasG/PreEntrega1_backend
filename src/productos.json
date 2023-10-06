@@ -16,14 +16,5 @@
     "thumbnail": ".img/2.jpg",
     "code": "ABBB002",
     "stock": 12
-  },
-  {
-    "id": 3,
-    "title": "Arete de oro",
-    "description": "Arete original con oro",
-    "price": 600000,
-    "thumbnail": ".img/arete.jpg",
-    "code": "ABBB005",
-    "stock": 9
   }
 ]
