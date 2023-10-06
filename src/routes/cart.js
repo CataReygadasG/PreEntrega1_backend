@@ -1,5 +1,5 @@
 import express from 'express';
-import productManager from './productManager.js'
+import productManager from '../productManager.js'
 import fs from 'fs';
 import cart from '../Cart.js';
 const cartsRouter = express.Router();

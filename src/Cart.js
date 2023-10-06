@@ -4,7 +4,7 @@ class Cart {
   constructor() {
     this.products = []; //inicializo con array vacio
     this.cartsId = 1;
-    this.path = 'productos.json';
+    this.path = 'cart.json';
   }
   addCart(title, description, price, thumbnail, code, stock) {
     const productExistente = this.products.find((product) => product.code === code);
@@ -82,49 +82,4 @@ class Cart {
 
   };
 
-  
-//-------------------------
-const cart = new Cart();
-cart.addProduct(
-  "Anillo",
-  "Anillo de oro con brillante",
-  1200000,
-  ".img/1.jpg",
-  "ABBB001",
-  12
-);
-cart.addProduct(
-  "Anillo",
-  "Anillo con brilllantes",
-  70000,
-  ".img/2.jpg",
-  "ABBB002",
-  12
-);
 
-cart.addProduct(
-  "Arete de oro",
-  "Arete original de oro",
-  500000,
-  ".img/arete.jpg",
-  "ABBB005",
-  7
-);
-
-
-console.log(cart.getCart());
-console.log(cart.getCartById(1));
-//console.log(cart.deleteCarrito(3));
-cart.updateCarrito(3,
-  {
-    title:"Arete de oro",
-    description: "Arete original con oro",
-    price:600000,
-    thumbnail: ".img/arete.jpg",
-    code:"ABBB005",
-    stock:9
-  }
- 
-);
-
-export default cart;

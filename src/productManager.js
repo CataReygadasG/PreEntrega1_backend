@@ -85,47 +85,47 @@ class ProductManager {
 
   
 //-------------------------
-const productManager = new ProductManager();
-productManager.addProduct(
-  "Anillo",
-  "Anillo de oro con brillante",
-  1200000,
-  ".img/1.jpg",
-  "ABBB001",
-  12
-);
-productManager.addProduct(
-  "Anillo",
-  "Anillo con brilllantes",
-  70000,
-  ".img/2.jpg",
-  "ABBB002",
-  12
-);
+ const productManager = new ProductManager();
+// productManager.addProduct(
+//   "Anillo",
+//   "Anillo de oro con brillante",
+//   1200000,
+//   ".img/1.jpg",
+//   "ABBB001",
+//   12
+// );
+// productManager.addProduct(
+//   "Anillo",
+//   "Anillo con brilllantes",
+//   70000,
+//   ".img/2.jpg",
+//   "ABBB002",
+//   12
+// );
 
-productManager.addProduct(
-  "Arete de oro",
-  "Arete original de oro",
-  500000,
-  ".img/arete.jpg",
-  "ABBB005",
-  7
-);
+// productManager.addProduct(
+//   "Arete de oro",
+//   "Arete original de oro",
+//   500000,
+//   ".img/arete.jpg",
+//   "ABBB005",
+//   7
+// );
 
 
-console.log(productManager.getProducts());
+// console.log(productManager.getProducts());
 //console.log(productManager.getProductById(1));
 //console.log(productManager.deleteProduct(3));
-productManager.updateProduct(3,
-  {
-    title:"Arete de oro",
-    description: "Arete original con oro",
-    price:600000,
-    thumbnail: ".img/arete.jpg",
-    code:"ABBB005",
-    stock:9
-  }
+// productManager.updateProduct(3,
+//   {
+//     title:"Arete de oro",
+//     description: "Arete original con oro",
+//     price:600000,
+//     thumbnail: ".img/arete.jpg",
+//     code:"ABBB005",
+//     stock:9
+//   }
  
-);
+// );
 
 export default productManager;
