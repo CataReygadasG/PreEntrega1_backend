@@ -12,9 +12,20 @@
     "id": 2,
     "title": "Anillo",
     "description": "Anillo con brilllantes",
-    "price": 70000,
+    "price": 80000,
     "thumbnail": ".img/2.jpg",
     "code": "ABBB002",
-    "stock": 12
+    "stock": 17
+  },
+  {
+    "id": "1696623090466",
+    "title": "Collar",
+    "description": "Collar con diseño",
+    "code": "ABBB004",
+    "price": 60000,
+    "status": true,
+    "stock": 14,
+    "category": "collar",
+    "thumbnail": ".img/collar.jpg"
   }
 ]

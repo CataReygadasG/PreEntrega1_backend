@@ -56,22 +56,22 @@ productsRouter.get('/products/:pid', (req, res)=>{
   fs.writeFileSync('productos.json', JSON.stringify(products, null, 2),'utf-8');
   res.status(200).json(newProduct);
  });
- 
- productsRouter.put('/:pid', (req,res)=>{
 
+ productsRouter.put('/:pid', (req,res)=>{
   const pid = parseInt(req.params.pid);
-  let arrayProduct = productManager.updateProduct(pid);
+  const product = req.body;
+  let arrayProduct = productManager.updateProduct(pid, product);
   if(arrayProduct){
      return res.send({arrayProduct});
   }else{
-      return res.send({error: "Producto no actualizado"}) } 
+      return res.send({error: "Producto actualizado"}) 
+    } 
   });
-
 
 
 productsRouter.delete('/:pid', (req,res)=>{
   const pid = parseInt(req.params.pid);
-  let arrayProduct = productManager.deleteProduct(pid);
+  let arrayProduct =  productManager.updateProduct(pid, updateProduct);
   if(arrayProduct){
      return res.send({arrayProduct, error: "Producto eliminado"});
   }else{
@@ -79,8 +79,5 @@ productsRouter.delete('/:pid', (req,res)=>{
     } 
   
 });
-
-
-
 
 export default productsRouter;
