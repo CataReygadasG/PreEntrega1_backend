@@ -1,8 +1,8 @@
 import express from 'express';
 import fs from 'fs';
-import cart from '../cartManager.js';
+import cartManager from '../classes/cartManager.js';
 const cartsRouter = express.Router();
-
+//GET
   cartsRouter.get('/:cid', (req, res)=>{
     const pid = parseInt(req.params.pid);
     let arrayProduct = productManager.getProductById(pid);
@@ -11,8 +11,8 @@ const cartsRouter = express.Router();
     }else{
         return res.send({error: "Producto no encontrado"}) } 
     });
-  
-   cartsRouter.post('/', (req, res)=> {
+  //POST
+  productsRouter.post('/', (req, res)=> {
     let id = Date.now().toString();
     const {
       title,
@@ -44,8 +44,10 @@ const cartsRouter = express.Router();
     fs.writeFileSync('productos.json', JSON.stringify(products, null, 2),'utf-8');
     res.status(200).json(newProduct);
    });
+  
 
    const products = [];
+   //POST
    cartsRouter.post('/:cid/product/:pid', (req, res)=>{
        let producto = req.body;
        if(!producto.id){
